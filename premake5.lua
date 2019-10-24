@@ -1,4 +1,4 @@
-project "glad"
+project "glfw"
     kind "StaticLib"
     language "C++"
 
