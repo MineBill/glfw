@@ -12,3 +12,13 @@ project "glfw"
         "src/vulkan.c",
         "src/window.c"
     }
+
+    includedirs {
+        "include"
+    }
+
+    filter "configurations:Debug"
+        symbols "On"
+
+    filter "configurations:Release"
+        optimize "On"
