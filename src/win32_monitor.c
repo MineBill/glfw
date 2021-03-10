@@ -33,6 +33,7 @@
 #include <string.h>
 #include <limits.h>
 #include <malloc.h>
+#include <wchar.h>
 
 
 // Callback for EnumDisplayMonitors in createMonitor
@@ -184,6 +185,8 @@ void _glfwPollMonitorsWin32(void)
                            display.DeviceName) == 0)
                 {
                     disconnected[i] = NULL;
+                    // handle may have changed, update
+                    EnumDisplayMonitors(NULL, NULL, monitorCallback, (LPARAM) _glfw.monitors[i]);
                     break;
                 }
             }
